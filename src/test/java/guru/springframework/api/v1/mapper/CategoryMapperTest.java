@@ -8,8 +8,9 @@ import static org.junit.Assert.*;
 
 public class CategoryMapperTest {
 
-    public static final String JOE = "Joe";
-    public static final long ID = 1L;
+    private static final String JOE = "Joe";
+
+    private static final long ID = 1L;
 
     CategoryMapper categoryMapper = CategoryMapper.INSTANCE;
 

@@ -31,6 +31,5 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDTO getCategoryByName(String name) {
         return categoryMapper.categoryToCategoryDTO(categoryRepository.findByName(name));
-
     }
 }
