@@ -1,5 +1,6 @@
 package guru.springframework.services;
 
+import guru.springframework.api.v1.mapper.CategoryMapper;
 import guru.springframework.api.v1.model.CategoryDTO;
 import guru.springframework.domain.Category;
 import guru.springframework.repositories.CategoryRepository;
@@ -28,7 +29,9 @@ public class CategoryServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this.getClass());
+        MockitoAnnotations.initMocks(this);
+
+        categoryService = new CategoryServiceImpl(CategoryMapper.INSTANCE, categoryRepository);
     }
 
     @Test
