@@ -44,11 +44,9 @@ public class CustomerControllerTest {
     @Test
     public void testListCustomers() throws Exception {
         CustomerDTO customer1 = new CustomerDTO();
-        customer1.setId(1L);
         customer1.setFirstName(FIRST_NAME);
 
         CustomerDTO customer2 = new CustomerDTO();
-        customer2.setId(2L);
         customer2.setFirstName("Emma");
 
         List<CustomerDTO> customers = Arrays.asList(customer1, customer2);
@@ -65,7 +63,6 @@ public class CustomerControllerTest {
     @Test
     public void getCustomerById() throws Exception {
         CustomerDTO customer = new CustomerDTO();
-        customer.setId(1L);
         customer.setFirstName(FIRST_NAME);
 
         when(customerService.getCustomerById(anyLong())).thenReturn(customer);

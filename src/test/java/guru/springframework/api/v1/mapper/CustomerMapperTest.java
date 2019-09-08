@@ -25,13 +25,11 @@ public class CustomerMapperTest {
         Customer customer = new Customer();
         customer.setFirstName(FIRST_NAME);
         customer.setLastName(LAST_NAME);
-        customer.setId(ID);
 
         // when
         CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
 
         // then
-        assertEquals(ID, customerDTO.getId());
         assertEquals(FIRST_NAME, customerDTO.getFirstName());
         assertEquals(LAST_NAME, customerDTO.getLastName());
     }
