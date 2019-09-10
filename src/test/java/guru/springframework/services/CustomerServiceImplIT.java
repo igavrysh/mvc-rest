@@ -97,7 +97,7 @@ public class CustomerServiceImplIT {
 
         System.out.println("Customers Found: " + customers.size());
 
-        // retur nfirst id
+        // return first id
         return customers.get(0).getId();
     }
 

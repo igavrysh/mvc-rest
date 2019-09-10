@@ -66,6 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO) {
+        int t = 10;
         return customerRepository.findById(id).map(customer -> {
 
             if (customerDTO.getFirstName() != null) {
@@ -76,7 +77,12 @@ public class CustomerServiceImpl implements CustomerService {
                 customer.setLastName(customerDTO.getLastName());
             }
 
-            return customerMapper.customerToCustomerDto(customerRepository.save(customer));
+            CustomerDTO returnDto = customerMapper.customerToCustomerDto(customerRepository.save(customer));
+
+            returnDto.setCustomerUrl("/api/v1/customer/" + id);
+
+            return returnDto;
+
         }).orElseThrow(RuntimeException::new); // todo implement better exception handling
     }
 }
