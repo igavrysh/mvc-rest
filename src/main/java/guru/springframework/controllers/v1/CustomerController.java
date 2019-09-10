@@ -33,7 +33,15 @@ public class CustomerController {
 
     @PostMapping
     public  ResponseEntity<CustomerDTO> createNewCustomer(@RequestBody CustomerDTO customerDTO) {
-        return new ResponseEntity<CustomerDTO>(customerService.createNewCustomer(customerDTO), HttpStatus.CREATED);
+        return new ResponseEntity<CustomerDTO>(
+                customerService.createNewCustomer(customerDTO),
+                HttpStatus.CREATED);
     }
 
+    @PutMapping({"/{id}"})
+    public  ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+        CustomerDTO savedDto = customerService.saveCustomerByDto(id, customerDTO);
+
+        return new ResponseEntity<CustomerDTO>(savedDto, HttpStatus.OK);
+    }
 }
