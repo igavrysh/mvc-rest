@@ -18,6 +18,7 @@ import java.util.List;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -100,5 +101,6 @@ public class CustomerServiceImplIT {
         // return first id
         return customers.get(0).getId();
     }
+
 
 }

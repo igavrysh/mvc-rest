@@ -39,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository
                 .findById(id)
                 .map(customerMapper::customerToCustomerDto)
-                .orElseThrow(RuntimeException::new); // todo implement better exception handling
+                .orElseThrow(ResourceNotFoundException::new);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class CustomerServiceImpl implements CustomerService {
 
             return returnDto;
 
-        }).orElseThrow(RuntimeException::new); // todo implement better exception handling
+        }).orElseThrow(ResourceNotFoundException::new);
     }
 
 

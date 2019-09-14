@@ -66,4 +66,7 @@ public class CategoryServiceTest {
         assertEquals(ID, categoryDTO.getId());
         assertEquals(NAME, categoryDTO.getName());
     }
+
+
+
 }
