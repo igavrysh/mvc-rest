@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import javax.print.attribute.standard.Media;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,6 +61,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(get(CustomerController.BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.customers", hasSize(2)));
@@ -74,6 +76,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(get(CustomerController.BASE_URL +"/1")
                 .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.first_name", equalTo(FIRST_NAME)));
@@ -97,6 +100,7 @@ public class CustomerControllerTest {
         mockMvc.perform(post(CustomerController.BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(customer))
+                .accept(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.first_name", equalTo("Fred")))
@@ -125,6 +129,7 @@ public class CustomerControllerTest {
         mockMvc.perform(put(CustomerController.BASE_URL + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(customer))
+                .accept(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.first_name", equalTo("Fred")))
@@ -149,6 +154,7 @@ public class CustomerControllerTest {
         mockMvc.perform(patch(CustomerController.BASE_URL + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(customer))
+                .accept(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.first_name", equalTo("Fred")))
