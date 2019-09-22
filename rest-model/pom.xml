@@ -4,12 +4,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!--<groupId>guru.springframework</groupId> -->
-
     <artifactId>rest-model</artifactId>
     <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
 
-    <name>mvc-rest-model</name>
+    <name>rest-model</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -21,16 +20,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxb2-maven-plugin</artifactId>
+            <version>2.5.0</version>
         </dependency>
     </dependencies>
 
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
